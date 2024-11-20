@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+// Function to perform selection sort on a 1D array
+void selectionSort1D(int arr[], int n) {
+    for (int i = 0; i < n - 1; ++i) {
+        int minIndex = i;
+
+        // Find the index of the minimum element in the unsorted part
+        for (int j = i + 1; j < n; ++j) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+
+        // Swap the found minimum element with the current element
+        if (minIndex != i) {
+            swap(arr[i], arr[minIndex]);
+        }
+    }
+}
+
+int main() {
+    int n;
+
+    // Input the size of the array
+    cout << "Enter the size of the array: ";
+    cin >> n;
+
+    int arr[100]; // Assuming maximum size of 100
+
+    // Input the elements of the array
+    cout << "Enter the elements of the array:\n";
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
+
+    // Sort the array using selection sort
+    selectionSort1D(arr, n);
+
+    // Output the sorted array
+    cout << "Sorted array:\n";
+    for (int i = 0; i < n; ++i) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
